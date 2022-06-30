@@ -4,6 +4,7 @@ const logger = require("morgan");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser")
 const { PORT, MONGO_URI } = require("./config");
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(cookieParser())
 app.use(helmet());
 
 // Routes
